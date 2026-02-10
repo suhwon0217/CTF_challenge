@@ -63,3 +63,7 @@ def chat(req: ChatRequest):
         return {"reply": response.text}
     except Exception as e:
         return {"error": str(e)}
+    
+@app.get("/")
+def read_index():
+    return FileResponse("index.html")
