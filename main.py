@@ -66,4 +66,5 @@ def chat(req: ChatRequest):
     
 @app.get("/")
 def read_index():
+    # 이제 접속하면 index.html 파일을 보여줍니다!
     return FileResponse("index.html")
