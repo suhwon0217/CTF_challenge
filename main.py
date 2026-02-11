@@ -3,6 +3,7 @@ from pydantic import BaseModel
 from dotenv import load_dotenv
 from fastapi.middleware.cors import CORSMiddleware
 from google.generativeai.types import HarmCategory, HarmBlockThreshold
+from fastapi.responses import FileResponse
 import os
 import google.generativeai as genai
 
@@ -49,10 +50,6 @@ model = genai.GenerativeModel(
 
 class ChatRequest(BaseModel):
     message: str
-
-@app.get("/")
-def root():
-    return {"status": "gemini-connected"}
 
 # 전송 버튼 누르면 실행되는 부분
 @app.post("/chat")
